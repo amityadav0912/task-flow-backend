@@ -1,6 +1,5 @@
-
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
+import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
 
 @Injectable()
 export class AuthService {
@@ -9,11 +8,15 @@ export class AuthService {
   constructor(private jwt: JwtService) {}
 
   login(username: string, password: string) {
-    if (username !== this.user.username || password !== this.user.password)
+    if (username !== this.user.username || password !== this.user.password) {
       throw new UnauthorizedException();
+    }
 
     return {
-      access_token: this.jwt.sign({ sub: this.user.id, username })
+      access_token: this.jwt.sign({
+        sub: this.user.id,
+        username,
+      }),
     };
   }
 }

@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PassportModule } from '@nestjs/passport';
 import { TasksModule } from './tasks/tasks.module';
 import { AuthModule } from './auth/auth.module';
 import { TeamsModule } from './teams/teams.module';
@@ -22,6 +23,7 @@ import { TeamMember } from './teams/team-member.entity';
     TasksModule,
     TeamsModule,
     AuthModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
   ],
 })
 export class AppModule {}

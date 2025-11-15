@@ -25,6 +25,11 @@ export class TasksController {
     return this.service.findOne(id);
   }
 
+  @Get('assignee/:assigneeId')
+  findByAssignee(@Param('assigneeId') assigneeId: string) {
+    return this.service.findByAssignee(assigneeId);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() dto: UpdateTaskDto) {
     return this.service.update(id, dto);
