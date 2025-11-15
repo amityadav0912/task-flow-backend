@@ -29,13 +29,14 @@ This backend allows you to manage tasks, teams, and team members with proper aut
 
 ## Getting Started
 
-### 1. Clone the repository
+### STEPS TO RUN
 
 ```bash
 git clone <repo-url>
 cd task-flow-backend
 
 
+# 1. Install Dependencies
 npm install
 
 
@@ -46,8 +47,8 @@ MONGO_URI=mongodb://localhost:27017/task-flow
 JWT_SECRET=your_jwt_secret
 JWT_EXPIRES_IN=3600s
 
-The API will be available at:
+#The API will be available at:
 npm run start:dev
 
-The API will be available at:
+#The API will be available at:
 http://localhost:3000
