@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { Team } from './team.entity';
 import { TeamMember } from './team-member.entity';
 import { CreateTeamDto } from './dto/create-team.dto';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class TeamsService {
@@ -27,7 +28,7 @@ export class TeamsService {
   findAll() { return this.teamRepo.find(); }
 
   async findOne(id: string) {
-    const t = await this.teamRepo.findOne({ where: { id } });
+    const t = await this.teamRepo.findOneBy({ _id: new ObjectId(id) } as any);
     if (!t) throw new NotFoundException('Not found');
     return t;
   }
